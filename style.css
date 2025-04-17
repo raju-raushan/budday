@@ -564,20 +564,140 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                overflow: auto;
+            }
+
             .storybook {
-                height: 70vh;
+                width: 90%;
+                max-width: 500px;
+                height: auto;
+                min-height: 400px;
             }
-            
+
+            .page {
+                width: 100%;
+                height: auto;
+                min-height: 400px;
+                padding: 20px;
+            }
+
+            .page-content {
+                padding: 15px;
+            }
+
             h1 {
-                font-size: 2rem;
+                font-size: 24px;
             }
-            
+
             p {
-                font-size: 1rem;
+                font-size: 16px;
             }
-            
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .video-container {
+                width: 100%;
+            }
+
+            .custom-video video {
+                width: 100%;
+                height: auto;
+            }
+
+            .nav-buttons {
+                bottom: 20px;
+            }
+
+            .prev-btn, .next-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .storybook {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
             .gallery {
                 grid-template-columns: 1fr;
+            }
+
+            .decoration {
+                display: none;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .panda-container {
+                left: -100px;
+                bottom: 30%;
+            }
+
+            .panda {
+                width: 80px;
+                height: 96px;
+            }
+
+            .panda-head {
+                width: 64px;
+                height: 56px;
+            }
+
+            .book-cover {
+                width: 100px;
+                height: 70px;
+                font-size: 14px;
+            }
+
+            .start-button {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .panda-container {
+                left: -80px;
+                bottom: 25%;
+            }
+
+            .panda {
+                width: 60px;
+                height: 72px;
+            }
+
+            .panda-head {
+                width: 48px;
+                height: 42px;
+            }
+
+            .book-cover {
+                width: 80px;
+                height: 60px;
+                font-size: 12px;
             }
         }
         
