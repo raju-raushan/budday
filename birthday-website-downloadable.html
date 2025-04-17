@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Sister!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="btn.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="panda-container">
+            <div class="panda">
+                <div class="panda-head">
+                    <div class="panda-ear-left"></div>
+                    <div class="panda-ear-right"></div>
+                    <div class="panda-eye-left"></div>
+                    <div class="panda-eye-right"></div>
+                    <div class="panda-nose"></div>
+                </div>
+                <div class="panda-body">
+                    <div class="panda-arm-left"></div>
+                    <div class="panda-arm-right"></div>
+                    <div class="panda-leg-left"></div>
+                    <div class="panda-leg-right"></div>
+                </div>
+            </div>
+            <div class="string"></div>
+            <div class="book-cover">Hello Sister</div>
+        </div>
+        <button class="start-button">Start Reading</button>
+    </div>
+    
+    <div class="storybook">
+        <div class="page" id="page1">
+            <div class="page-content">
+                <div class="decoration">
+                    <div class="balloon b1"></div>
+                    <div class="balloon b2"></div>
+                    <div class="balloon b3"></div>
+                    <div class="balloon b4"></div>
+                </div>
+                <h1>Happy Birthday, Sister!</h1>
+                <p>To my amazing sister on your special day,</p>
+                <p>May your birthday be filled with joy, laughter, and wonderful surprises. Thank you for being the incredible person you are - kind, loving, and always there when I need you. Our journey together has been filled with countless memories that I'll treasure forever.</p>
+                <p>Today is all about celebrating YOU and the beautiful soul that you are!</p>
+                <p>With all my love,</p>
+                <p>Your Sibling</p>
+            </div>
+                            <!-- From Uiverse.io by njesenberger --> 
+                            <div class="toggle-container">
+                                <input class="toggle-input" type="checkbox" id="myToggle" onchange="redirectOnToggle(this)">
+                                <div class="toggle-handle-wrapper">
+                                  <div class="toggle-handle">
+                                    <div class="toggle-handle-knob"></div>
+                                    <div class="toggle-handle-bar-wrapper">
+                                      <div class="toggle-handle-bar"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="toggle-base">
+                                  <div class="toggle-base-inside"></div>
+                                </div>
+                              </div>
+        </div>
+        <div class="page" id="page2">
+            <div class="page-content">
+                <h1>Our Special Memories</h1>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openModal('/api/placeholder/200/150', 'Memory 1')">
+                        <img src="/api/placeholder/200/150" alt="Memory 1">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('/api/placeholder/200/150', 'Memory 2')">
+                        <img src="/api/placeholder/200/150" alt="Memory 2">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('/api/placeholder/200/150', 'Memory 3')">
+                        <img src="/api/placeholder/200/150" alt="Memory 3">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('/api/placeholder/200/150', 'Memory 4')">
+                        <img src="/api/placeholder/200/150" alt="Memory 4">
+                    </div>
+                </div>
+                <p>Each photo holds a story of laughter, adventure, and love.</p>
+            </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="page-content">
+                <h1>A Special Message</h1>
+                <div class="video-container">
+                    <div class="custom-video">
+                        <video id="birthday-video" poster="/api/placeholder/400/300">
+                            <source src="#" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-controls">
+                            <button class="play-pause" onclick="togglePlay()">▶</button>
+                            <div class="progress-bar">
+                                <div class="progress" id="video-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>A special message just for you on your birthday!</p>
+            </div>
+        </div>
+        <div class="page" id="page4">
+            <div class="page-content">
+                <h1>Thank You for Being You!</h1>
+                <div class="emoji">🎁 🎂 🎉</div>
+                <p>Wishing you a year ahead filled with blessings, success, and endless happiness.</p>
+                <p>May all your dreams come true!</p>
+                <div class="emoji">💖</div>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="prev-btn" disabled>Previous</button>
+            <button class="next-btn">Next</button>
+        </div>
+        
+        <div class="love-message">Made with love by your sibling 💖</div>
+    </div>
+    
+    
+    <div class="modal" id="imageModal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+    
+    <div class="stars"></div>
+    
+    <audio id="applauseSound" preload="auto">
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/demo/_mp3/applause.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/ion-sound/3.0.7/sounds/button_tiny.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function redirectOnToggle(toggle) {
+          if (toggle.checked) {
+            window.location.href = 'book.html'; // Change this to your target file
+          }
+        }
+      </script>
+    <script>
+        // Create stars in the background
+        function createStars() {
+            const stars = document.querySelector('.stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('span');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                stars.appendChild(star);
+            }
+        }
+        
+        // Create confetti elements
+        function createConfetti() {
+            const decoration = document.querySelector('.decoration');
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = `-${Math.random() * 100}px`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 70%)`;
+                confetti.style.width = `${5 + Math.random() * 10}px`;
+                confetti.style.height = `${5 + Math.random() * 15}px`;
+                confetti.style.animationDuration = `${3 + Math.random() * 5}s`;
+                confetti.style.animationDelay = `${Math.random() * 5}s`;
+                decoration.appendChild(confetti);
+            }
+        }
+        
+        // Loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            setTimeout(() => {
+                document.querySelector('.start-button').style.display = 'block';
+            }, 4000);
+            
+            const applauseSound = document.getElementById('applauseSound');
+            const bgMusic = document.getElementById('bgMusic');
+            
+            document.querySelector('.start-button').addEventListener('click', function() {
+                // Play applause sound (handle autoplay restrictions)
+                applauseSound.play().catch(e => {
+                    console.log('Audio play prevented due to browser restrictions');
+                });
+                
+                // Setup background music (will require user interaction)
+                bgMusic.volume = 0.3;
+                bgMusic.play().catch(e => {
+                    console.log('Background music play prevented due to browser restrictions');
+                });
+                
+                document.getElementById('loading-screen').style.display = 'none';
+                document.querySelector('.storybook').style.display = 'block';
+                
+                createConfetti();
+            });
+            
+            // Storybook page flipping
+            let currentPage = 0;
+            const pages = document.querySelectorAll('.page');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            
+            function updatePage() {
+                pages.forEach((page, index) => {
+                    if (index < currentPage) {
+                        page.style.transform = 'rotateY(-180deg)';
+                    } else {
+                        page.style.transform = 'rotateY(0deg)';
+                    }
+                    
+                    // Adjust z-index for proper stacking
+                    page.style.zIndex = pages.length - Math.abs(currentPage - index);
+                });
+                
+                // Update nav button states
+                prevBtn.disabled = currentPage === 0;
+                nextBtn.disabled = currentPage === pages.length - 1;
+            }
+            
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updatePage();
+                }
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < pages.length - 1) {
+                    currentPage++;
+                    updatePage();
+                }
+            });
+            
+            // Initialize page display
+            updatePage();
+        });
+        
+        // Image modal functionality
+        function openModal(imgSrc, altText) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = 'flex';
+            modalImg.src = imgSrc;
+            modalImg.alt = altText;
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // Video control functionality
+        function togglePlay() {
+            const video = document.getElementById('birthday-video');
+            const playPauseBtn = document.querySelector('.play-pause');
+            
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = '❚❚';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = '▶';
+            }
+        }
+        
+        // Update video progress bar
+        document.getElementById('birthday-video').addEventListener('timeupdate', function() {
+            const video = this;
+            const progress = document.getElementById('video-progress');
+            const value = (video.currentTime / video.duration) * 100;
+            
+            progress.style.width = value + '%';
+            
+            if (video.ended) {
+                document.querySelector('.play-pause').textContent = '▶';
+            }
+        });
+        
+        // Close the modal if clicked outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
